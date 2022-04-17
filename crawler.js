@@ -1,6 +1,9 @@
 const request = require("./node_modules/request");
 const cheerio = require("./node_modules/cheerio");
 
+/**
+ * 取得當期三星彩數字
+ */
 const Crawler3D = () => {
     request({
         url: "https://www.taiwanlottery.com.tw/Lotto/3D/history.aspx",
