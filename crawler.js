@@ -1,5 +1,5 @@
-const request = require("./node_modules/request");
-const cheerio = require("./node_modules/cheerio");
+const request = require("request");
+const cheerio = require("cheerio");
 
 /**
  * 取得當期三星彩數字
