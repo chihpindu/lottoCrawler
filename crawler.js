@@ -1,26 +1,45 @@
 const request = require("request");
 const cheerio = require("cheerio");
 
-/**
- * 取得當期三星彩數字
- */
-const Crawler3D = () => {
-    request({
-        url: "https://www.taiwanlottery.com.tw/Lotto/3D/history.aspx",
-        method: "GET"
-    }, (error, res, body) => {
-        // 如果有錯誤訊息，或沒有 body(內容)，就 return
-        if (error || !body) {
-            return;
-        }
-
-        const $ = cheerio.load(body); // 載入 body
-        const num = $("table.table_org tr:eq(2) .td_w");
-        
-
-        console.log(num.text());
-        //console.log(body);
+//取得頁面html
+const doRequest = (url)=>{
+    return new Promise((resolve, reject)=>{
+        request({
+            url: url,
+            method: "GET"
+        }, (error, res, body) => {
+            // 如果有錯誤訊息，或沒有 body(內容)，就 return
+            if (error || !body) {
+                reject(error);
+            }
+            else{
+                resolve(body);
+            }    
+        });
     });
+}
+
+//取得所有樂透彩資訊
+const crawlerAll = async (url) => {
+    url = url || "https://www.taiwanlottery.com.tw/result_all.htm";
+    
+    let getBody = async ()=>{
+        return await doRequest(url);
+    };
+
+    let body = await getBody();
+    let $ = cheerio.load(body);
+
+    return {
+        "3D": get3D($)
+    };
+}
+
+module.exports = {
+    crawlerAll
 };
 
-Crawler3D();
+//取得三星彩資訊
+const get3D = ($)=>{  
+    return "000";
+}

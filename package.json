@@ -1,7 +1,6 @@
 {
   "name": "lottocrawler",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
   "main": "crawler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,5 +11,15 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
     "request": "^2.88.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chihpindu/lottoCrawler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chihpindu/lottoCrawler/issues"
+  },
+  "homepage": "https://github.com/chihpindu/lottoCrawler#readme",
+  "description": ""
 }
