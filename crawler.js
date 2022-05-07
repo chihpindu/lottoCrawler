@@ -86,22 +86,54 @@ function fnHandleCommon($){
 
 /**取得威力彩資訊 */
 function getSuperLotto($){
-    return null;
+    var tr4 = $.find("table.tableWin tbody tr:eq(4) td:eq(1)");
+    //取得第二區號碼
+    var zone2 = tr4.find(".font_red14").text().trim();
+    var zone1s = tr4.find(".font_red14").nextAll("span");
+    var aryZone1 = [];
+    for(let i = 0; i<zone1s.length; i++){
+        aryZone1.push(zone1s.eq(i).text().trim());
+    }
+
+    return aryZone1.join(",") + ":" + zone2;
 }
 
 /**取得大樂透資訊 */
 function getLotto($){
-    return null;
+    var tr4 = $.find("table.tableWin tbody tr:eq(4) td:eq(1)");
+    //取得第二區號碼
+    var zone2 = tr4.find(".font_red14 > .font_red14").text().trim();
+    var zone1s = tr4.find(".font_red14").nextAll("span");
+    var aryZone1 = [];
+    for(let i = 0; i<zone1s.length; i++){
+        aryZone1.push(zone1s.eq(i).text().trim());
+    }
+
+    return aryZone1.join(",") + ":" + zone2;
 }
 
 /**取得今彩539資訊 */
 function getDailycash($){
-    return null;
+    var tr4 = $.find("table.tableWin tbody tr:eq(4) td:eq(1)");
+    var zone1s = tr4.find("br").nextAll("span");
+    var aryZone1 = [];
+    for(let i = 0; i<zone1s.length; i++){
+        aryZone1.push(zone1s.eq(i).text().trim());
+    }
+
+    return aryZone1.join(",");
 }
 
 /**取得雙贏彩資訊 */
 function getLotto1224($){
-    return null;
+    var tr4 = $.find("table.tableWin tbody tr:eq(4) td:eq(1)");
+    var zone1s = tr4.find("br").nextAll("span");
+    var aryZone1 = [];
+    for(let i = 0; i<zone1s.length; i++){
+        aryZone1.push(zone1s.eq(i).text().trim());
+    }
+
+    return aryZone1.join(",");
 }
 
 /**取得三星彩資訊 */
@@ -118,17 +150,38 @@ function get4D($){
 
 /**取得38樂合 */
 function get38m6($){
-    return null;
+    var tr4 = $.find("table.tableWin tbody tr:eq(4) td:eq(1)");
+    var zone1s = tr4.find("br").nextAll("span");
+    var aryZone1 = [];
+    for(let i = 0; i<zone1s.length; i++){
+        aryZone1.push(zone1s.eq(i).text().trim());
+    }
+
+    return aryZone1.join(",");
 }
 
 /**取得49樂合 */
 function get49m6($){
-    return null;
+    var tr4 = $.find("table.tableWin tbody tr:eq(4) td:eq(1)");
+    var zone1s = tr4.find("br").nextAll("span");
+    var aryZone1 = [];
+    for(let i = 0; i<zone1s.length; i++){
+        aryZone1.push(zone1s.eq(i).text().trim());
+    }
+
+    return aryZone1.join(",");
 }
 
 /**取得39樂合 */
 function get39m5($){
-    return null;
+    var tr4 = $.find("table.tableWin tbody tr:eq(4) td:eq(1)");
+    var zone1s = tr4.find("br").nextAll("span");
+    var aryZone1 = [];
+    for(let i = 0; i<zone1s.length; i++){
+        aryZone1.push(zone1s.eq(i).text().trim());
+    }
+
+    return aryZone1.join(",");
 }
 
 /**處理開獎日期 */
