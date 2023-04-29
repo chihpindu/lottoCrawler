@@ -14,6 +14,19 @@ const mapFunction = {
     "39樂合彩": get39m5
 }
 
+const mapID = {
+	"威力彩": "SuperLotto",
+	"大樂透": "Lotto",
+	"今彩539": "Lotto539",
+	"雙贏彩": "Lotto1224",
+	"3星彩": "3D",
+	"4星彩": "4D",
+	"38樂合彩": "Lotto38m6",
+	"49樂合彩": "Lotto49m6",
+	"39樂合彩": "Lotto39m5"
+};
+
+
 /**取得頁面html */
 const doRequest = (url)=>{
     return new Promise((resolve, reject)=>{
@@ -54,10 +67,10 @@ const crawlerAll = async () => {
         var o = fnHandleCommon(block.eq(i));
 
         //存在遊戲名稱才做處理
-        o && (oResult[o.name] = o);
+        o && (oResult[o.ID] = o);
 
         //移除遊戲名稱（回傳的物件已用名稱做為key值，不需要重覆的資訊）
-        delete o.name;
+        delete o.ID;
     }
 
     return oResult;
@@ -78,6 +91,7 @@ function fnHandleCommon($){
     //回傳遊戲資訊
     return {
         name: name,
+		ID: mapID[name],
         date: fnHandleDate($),
         result: mapFunction[name]($)
     }
